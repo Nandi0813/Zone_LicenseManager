@@ -2,6 +2,7 @@ package dev.nandi0813.license.Auth;
 
 import dev.nandi0813.license.Common;
 import dev.nandi0813.license.Util.ConfigFile;
+import dev.nandi0813.license.Util.PlatformID;
 import org.json.JSONObject;
 
 public class LicenseValidator extends ConfigFile {
@@ -9,7 +10,7 @@ public class LicenseValidator extends ConfigFile {
     private final Auth auth;
     private final AuthClient authClient;
 
-    private String platformId = null;
+    private String platformId = PlatformID.getPlatformID();
     private String licenseKey = null;
     private String tempPassword = null;
 

@@ -13,8 +13,6 @@ public class Auth {
     private final LicenseValidator licenseValidator;
 
     public Auth(JavaPlugin plugin, Audience audience, String baseUrl, String apiKey) {
-        plugin.saveResource("license.yml", false);
-
         this.plugin = plugin;
         this.licenseValidator = new LicenseValidator(this, baseUrl, apiKey);
         this.audience = audience;
