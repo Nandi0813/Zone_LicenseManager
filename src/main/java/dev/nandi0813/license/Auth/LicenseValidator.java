@@ -43,10 +43,6 @@ public class LicenseValidator extends ConfigFile {
 
     @Override
     public void getData() {
-        if (this.isSet("platform-id")) {
-            this.platformId = (String) this.get("platform-id");
-        }
-
         if (this.isSet("license-key")) {
             this.licenseKey = (String) this.get("license-key");
         }
