@@ -15,13 +15,13 @@ public abstract class ConfigFile {
     protected final YamlConfiguration config;
 
     protected ConfigFile(JavaPlugin plugin, String path, String fileName) {
-        saveFile();
-        reloadFile();
-
         this.fileName = fileName;
 
         this.file = new File(plugin.getDataFolder() + path, fileName + ".yml");
         this.config = YamlConfiguration.loadConfiguration(file);
+
+        saveFile();
+        reloadFile();
     }
 
     public abstract void setData();
