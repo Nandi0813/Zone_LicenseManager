@@ -3,6 +3,7 @@ package dev.nandi0813.license.Auth;
 import dev.nandi0813.license.Common;
 import dev.nandi0813.license.Util.ConfigFile;
 import dev.nandi0813.license.Util.PlatformID;
+import dev.nandi0813.license.Util.ValidationType;
 import org.json.JSONObject;
 
 public class LicenseValidator extends ConfigFile {
@@ -52,13 +53,14 @@ public class LicenseValidator extends ConfigFile {
         }
     }
 
-    public boolean validateLicense(String productName, String productVersion, String serverId, String ipAddress) {
+    public boolean validateLicense(String productName, String productVersion, ValidationType validationType, String serverId, String ipAddress) {
         try {
             JSONObject payload = new JSONObject();
             payload.put("platform_id", platformId);
             payload.put("license_key", licenseKey);
             payload.put("product_name", productName);
             payload.put("product_version", productVersion);
+            payload.put("validation_type", validationType.name().toLowerCase());
             payload.put("server_id", serverId);
             payload.put("ip_address", ipAddress);
 

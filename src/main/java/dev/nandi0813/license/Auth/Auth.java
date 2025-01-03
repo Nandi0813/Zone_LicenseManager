@@ -3,6 +3,7 @@ package dev.nandi0813.license.Auth;
 import dev.nandi0813.license.Common;
 import dev.nandi0813.license.Util.Hwid;
 import dev.nandi0813.license.Util.IP;
+import dev.nandi0813.license.Util.ValidationType;
 import net.kyori.adventure.audience.Audience;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -18,11 +19,12 @@ public class Auth {
         this.audience = audience;
     }
 
-    public boolean authenticate(final String productName, final String productVersion) {
+    public boolean authenticate(final String productName, final String productVersion, final ValidationType validationType) {
         try {
             return licenseValidator.validateLicense(
                     productName,
                     productVersion,
+                    validationType,
                     Hwid.getCurrentHwid(),
                     IP.getCurrentIp()
             );
