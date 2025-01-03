@@ -10,7 +10,7 @@ public class LicenseValidator extends ConfigFile {
     private final Auth auth;
     private final AuthClient authClient;
 
-    private String platformId = PlatformID.getPlatformID();
+    private final String platformId = PlatformID.getPlatformID();
     private String licenseKey = null;
     private String tempPassword = null;
 
@@ -97,7 +97,13 @@ public class LicenseValidator extends ConfigFile {
 
                 Common.sendMessage(auth.getAudience(), "<gray><st>---------------------------------");
                 Common.sendMessage(auth.getAudience(), "<gray>[<gold>" + productName + "<gray>] <red>" + message);
+                Common.sendMessage(auth.getAudience(), "");
+                Common.sendMessage(auth.getAudience(), "<yellow>License Key, Platform ID, and Temporary Password are stored in the <white>license.yml<yellow> file located in the plugin folder.");
+                Common.sendMessage(auth.getAudience(), "<yellow>Make sure to contact us on our Discord server to get your license approved.");
+                Common.sendMessage(auth.getAudience(), "<yellow>You can log in and manage your license at: <aqua>https://nandi0813.hu/");
+                Common.sendMessage(auth.getAudience(), "");
                 Common.sendMessage(auth.getAudience(), "<yellow>License Key: <white>" + (this.licenseKey != null ? this.licenseKey : "N/A"));
+                Common.sendMessage(auth.getAudience(), "<yellow>Platform ID: <white>" + (this.platformId != null ? this.platformId : "N/A"));
                 Common.sendMessage(auth.getAudience(), "<yellow>Temporary Password: <white>" + (this.tempPassword != null ? this.tempPassword : "N/A"));
                 Common.sendMessage(auth.getAudience(), "<gray><st>---------------------------------");
                 return false;
