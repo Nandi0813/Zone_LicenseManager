@@ -19,11 +19,12 @@ public class Auth {
         this.audience = audience;
     }
 
-    public boolean authenticate(final String productName, final String productVersion, final ValidationType validationType) {
+    public boolean authenticate(final String productName, final String productVersion, final String serverVersion, final ValidationType validationType) {
         try {
             return licenseValidator.validateLicense(
                     productName,
                     productVersion,
+                    serverVersion,
                     validationType,
                     Hwid.getCurrentHwid(),
                     IP.getCurrentIp()
